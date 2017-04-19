@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage, IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 
@@ -85,6 +86,7 @@ export function providers() {
     User,
     Api,
     Items,
+    Camera,
 
     { provide: Settings, useFactory: provideSettings, deps: [ Storage ] },
     // Keep this to enable Ionic's runtime error handling during development

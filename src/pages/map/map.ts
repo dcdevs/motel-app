@@ -1,7 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 
-import { GoogleMap, GoogleMapsLatLng } from 'ionic-native';
+import {
+ GoogleMaps,
+ LatLng
+} from '@ionic-native/google-maps';
 
 declare var google: any;
 
@@ -12,7 +15,7 @@ declare var google: any;
 export class MapPage {
   @ViewChild('map') map;
 
-  constructor(public navCtrl: NavController, public platform: Platform) {}
+  constructor(public navCtrl: NavController, public platform: Platform, private googleMaps: GoogleMaps) {}
 
   initJSMaps(mapEle) {
     new google.maps.Map(mapEle, {
@@ -22,11 +25,11 @@ export class MapPage {
   }
 
   initNativeMaps(mapEle) {
-    this.map = new GoogleMap(mapEle);
+    this.map = this.googleMaps.create(mapEle);
     mapEle.classList.add('show-map');
 
-    GoogleMap.isAvailable().then(() => {
-      const position = new GoogleMapsLatLng(43.074395, -89.381056);
+    this.googleMaps.isAvailable().then(() => {
+      const position = new LatLng(43.074395, -89.381056);
       this.map.setPosition(position);
     });
   }
