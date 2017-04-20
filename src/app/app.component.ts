@@ -60,7 +60,7 @@ export class MyApp {
     { title: 'Search', component: SearchPage }
   ]
 
-  constructor(translate: TranslateService, platform: Platform, settings: Settings, config: Config, private splashScreen: SplashScreen) {
+  constructor(translate: TranslateService, platform: Platform, settings: Settings, config: Config, private splashScreen: SplashScreen, private statusBar: StatusBar) {
     // Set the default language for translation strings, and the current language.
     translate.setDefaultLang('en');
     translate.use('en')
@@ -72,7 +72,7 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      //StatusBar.styleDefault();
+      this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
