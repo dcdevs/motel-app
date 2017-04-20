@@ -1,10 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
-
-import {
- GoogleMaps,
- LatLng
-} from '@ionic-native/google-maps';
+import { GoogleMaps, LatLng } from '@ionic-native/google-maps';
 
 declare var google: any;
 
