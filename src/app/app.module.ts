@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 
@@ -91,6 +92,7 @@ export function providers() {
     Items,
     Camera,
     SplashScreen,
+    StatusBar,
 
     { provide: Settings, useFactory: provideSettings, deps: [ Storage ] },
     // Keep this to enable Ionic's runtime error handling during development
