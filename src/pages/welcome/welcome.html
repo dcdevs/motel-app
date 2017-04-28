@@ -1,13 +1,30 @@
-<ion-content scroll="false">
-  <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      {{ 'WELCOME_INTRO' | translate }}
+<ion-content scroll="false" class="welcome-bg">
+  <div class="welcome-opacity"></div>
+  <div class="welcome-info">
+    <div class="welcome-logo">
+      <img src="assets/img/logo.png" alt="">
+    </div>
+    <div class="welcome-intro">
+      <h1 class="title">Motel App</h1>
+      <span>¡Welcome to de app!</span>
     </div>
   </div>
-  <div padding>
-    <button ion-button block (click)="signup()" class="signup">{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
+  <div text-center>
+    <div class="btn-primary-cover">
+      <button ion-button icon-only (click)="login()" class="login-btn">
+        <ion-icon name='md-arrow-forward'></ion-icon>
+      </button>
+    </div>
+  </div>
+  <div text-center class="social-btn-container">
+    <button ion-button icon-only (click)="login()" class="google-btn">
+      <ion-icon name='logo-googleplus'></ion-icon>
+    </button>
+    <button ion-button icon-only (click)="login()" class="facebook-btn">
+      <ion-icon name='logo-facebook'></ion-icon>
+    </button>
+  </div>
+  <div text-center padding class="signup-container">
+    <span>Do you have an account? <button ion-button clear (click)="signup()" class="signup">Sign up</button></span>
   </div>
 </ion-content>
