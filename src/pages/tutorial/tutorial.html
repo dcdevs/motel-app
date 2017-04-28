@@ -1,25 +1,30 @@
-<ion-header no-shadow>
-  <ion-navbar>
-    <ion-buttons end *ngIf="showSkip">
-      <button ion-button (click)="startApp()" color="primary">{{ 'TUTORIAL_SKIP_BUTTON' | translate}}</button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
 
 <ion-content no-bounce>
   <ion-slides (ionWillChange)="onSlideChangeStart($event)">
+    <!-- Slides -->
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.image" class="slide-image"/>
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <p [innerHTML]="slide.description"></p>
+      <p class="slide-description" [innerHTML]="slide.description"></p>
     </ion-slide>
+    <!-- Slide Last -->
     <ion-slide>
       <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
-      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE4_TITLE' | translate }}</h2>
+      <h2 class="slide-title">{{ 'tutorial.slide4_title' | translate }}</h2>
       <button ion-button icon-right large clear (click)="startApp()">
-        {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
+        {{ 'actions.continue' | translate }}
         <ion-icon name="arrow-forward"></ion-icon>
       </button>
     </ion-slide>
   </ion-slides>
 </ion-content>
+
+<ion-footer>
+  <!-- Button Skip -->
+  <ion-buttons end *ngIf="showSkip">
+    <button ion-button (click)="startApp()" class="button-skip" color="primary">
+    {{ 'actions.skip' | translate}}
+    </button>
+  </ion-buttons>
+  <div class="divider-dashed"></div>
+</ion-footer>

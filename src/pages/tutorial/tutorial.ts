@@ -6,8 +6,6 @@ import { WelcomePage } from '../welcome/welcome';
 
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
-
-
 export interface Slide {
   title: string;
   description: string;
@@ -23,29 +21,29 @@ export class TutorialPage {
   showSkip = true;
 
   constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService) {
-    translate.get(["TUTORIAL_SLIDE1_TITLE",
-                   "TUTORIAL_SLIDE1_DESCRIPTION",
-                   "TUTORIAL_SLIDE2_TITLE",
-                   "TUTORIAL_SLIDE2_DESCRIPTION",
-                   "TUTORIAL_SLIDE3_TITLE",
-                   "TUTORIAL_SLIDE3_DESCRIPTION",
+    translate.get(["tutorial.slide1_title",
+                   "tutorial.slide1_description",
+                   "tutorial.slide2_title",
+                   "tutorial.slide2_description",
+                   "tutorial.slide3_title",
+                   "tutorial.slide3_description"
     ])
     .subscribe((values) => {
       console.log('Loaded values', values);
       this.slides = [
         {
-          title: values.TUTORIAL_SLIDE1_TITLE,
-          description: values.TUTORIAL_SLIDE1_DESCRIPTION,
-          image: 'assets/img/ica-slidebox-img-1.png',
+          title: values['tutorial.slide1_title'],
+          description: values['tutorial.slide1_description'],
+          image: 'assets/img/slides/slide1.png',
         },
         {
-          title: values.TUTORIAL_SLIDE2_TITLE,
-          description: values.TUTORIAL_SLIDE2_DESCRIPTION,
-          image: 'assets/img/ica-slidebox-img-2.png',
+          title: values['tutorial.slide2_title'],
+          description: values['tutorial.slide2_description'],
+          image: 'assets/img/slides/slide2.png',
         },
         {
-          title: values.TUTORIAL_SLIDE3_TITLE,
-          description: values.TUTORIAL_SLIDE3_DESCRIPTION,
+          title: values['tutorial.slide3_title'],
+          description: values['tutorial.slide3_description'],
           image: 'assets/img/ica-slidebox-img-3.png',
         }
       ];
